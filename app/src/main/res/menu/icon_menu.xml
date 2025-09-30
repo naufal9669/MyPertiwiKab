@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_home"
+        android:title="Dashboard"/>
+
+    <item
+        android:id="@+id/nav_absensi"
+        android:icon="@drawable/baseline_calendar_today_24"
+        android:title="Absensi"/>
+
+    <item
+        android:id="@+id/nav_izin"
+        android:icon="@drawable/ic_paper"
+        android:title="Izin"/>
+
+    <item
+        android:id="@+id/nav_raport"
+        android:icon="@drawable/ic_knowledge"
+        android:title="E-Raport"/>
+
+</menu>
