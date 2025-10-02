@@ -1,6 +1,7 @@
 package com.example.mypertiwikab;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,10 +18,6 @@ public class loginactivity extends AppCompatActivity {
     TextView textRegister;
     EditText editTextEmail, editTextPassword;
 
-    // Akun default (user buatan sendiri)
-    private final String EMAIL = "admin@gmail.com";
-    private final String PASSWORD = "12345";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,28 +28,42 @@ public class loginactivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
 
-        // Login check
+        SharedPreferences prefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
+
+        // Kalau sudah login sebelumnya, langsung ke dashboard
+        if (prefs.getBoolean("isLoggedIn", false)) {
+            startActivity(new Intent(loginactivity.this, dashboard.class));
+            finish();
+        }
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String inputEmail = editTextEmail.getText().toString().trim();
                 String inputPassword = editTextPassword.getText().toString().trim();
 
-                if (inputEmail.equals(EMAIL) && inputPassword.equals(PASSWORD)) {
+                String savedEmail = prefs.getString("email", "admin@gmail.com");
+                String savedPassword = prefs.getString("password", "12345");
+
+                if (inputEmail.equals(savedEmail) && inputPassword.equals(savedPassword)) {
                     Toast.makeText(loginactivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                    Intent explicitIntent = new Intent(loginactivity.this, mainactivity.class);
+
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.apply();
+
+                    Intent explicitIntent = new Intent(loginactivity.this, dashboard.class);
                     startActivity(explicitIntent);
-                    finish(); // biar login ga bisa balik ke halaman login pakai tombol back
+                    finish();
                 } else {
                     Toast.makeText(loginactivity.this, "Email atau Password salah!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        // Pindah ke halaman Register
         textRegister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {   
+            public void onClick(View v) {
                 Intent explicitIntent = new Intent(loginactivity.this, registeractivity.class);
                 startActivity(explicitIntent);
             }

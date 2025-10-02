@@ -16,7 +16,7 @@ public class dashboard extends AppCompatActivity {
 
         // Tampilkan halaman home default saat pertama buka
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, new halamanhome())
+                .replace(R.id.nav_host_fragment, new home())
                 .commit();
 
         bottomNav.setOnItemSelectedListener(item -> {
@@ -27,9 +27,9 @@ public class dashboard extends AppCompatActivity {
             if (id == R.id.nav_absensi) {
                 selectedFragment = new absensi(); // nanti buat class halamannotes
             } else if (id == R.id.nav_izin) {
-                selectedFragment = new Izin(); // nanti buat class halamancalendar
+                selectedFragment = new izin(); // nanti buat class halamancalendar
             } else if (id == R.id.nav_home) {
-                selectedFragment = new halamanhome();
+                selectedFragment = new home();
             } else if (id == R.id.nav_raport) {
                 selectedFragment = new raport(); // nanti buat class halamanmood
             }
