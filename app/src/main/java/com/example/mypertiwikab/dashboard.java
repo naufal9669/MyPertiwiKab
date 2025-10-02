@@ -24,16 +24,14 @@ public class dashboard extends AppCompatActivity {
             int id = item.getItemId();
 
             // Gunakan if-else alih-alih switch-case
-            if (id == R.id.nav_notes) {
-                selectedFragment = new halamannotes(); // nanti buat class halamannotes
-            } else if (id == R.id.nav_calendar) {
-                selectedFragment = new halamancalendar(); // nanti buat class halamancalendar
+            if (id == R.id.nav_absensi) {
+                selectedFragment = new absensi(); // nanti buat class halamannotes
+            } else if (id == R.id.nav_izin) {
+                selectedFragment = new Izin(); // nanti buat class halamancalendar
             } else if (id == R.id.nav_home) {
                 selectedFragment = new halamanhome();
-            } else if (id == R.id.nav_mood) {
-                selectedFragment = new halamanmood(); // nanti buat class halamanmood
-            } else if (id == R.id.nav_profile) {
-                selectedFragment = new halamanprofil(); // nanti buat class halamanprofil
+            } else if (id == R.id.nav_raport) {
+                selectedFragment = new raport(); // nanti buat class halamanmood
             }
 
             if (selectedFragment != null) {
