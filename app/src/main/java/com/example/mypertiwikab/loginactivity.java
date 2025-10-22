@@ -52,7 +52,9 @@ public class loginactivity extends AppCompatActivity {
                     editor.putBoolean("isLoggedIn", true);
                     editor.apply();
 
-                    Intent explicitIntent = new Intent(loginactivity.this, dashboard.class);
+                    Intent explicitIntent = new Intent(loginactivity.this, dashboard
+
+                            .class);
                     startActivity(explicitIntent);
                     finish();
                 } else {

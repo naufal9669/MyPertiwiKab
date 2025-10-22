@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Tombol Back -->
+        <ImageButton
+            android:id="@+id/btnBackProfil"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="start"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Kembali" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvProfilTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profil"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/black" />
+
+        <!-- Foto Profil -->
+        <ImageView
+            android:id="@+id/imgProfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_avatar_woman"
+            android:contentDescription="Foto Profil"
+            android:background="@drawable/bg_circle"
+            android:padding="8dp" />
+
+        <!-- Nama Guru -->
+        <TextView
+            android:id="@+id/tvNamaGuru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amelia S.Pd"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/black" />
+
+        <!-- Garis Pemisah -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#DADADA" />
+
+        <!-- Informasi Profil -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <!-- Nama -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:text="Amelia S.pd"
+                android:padding="10dp"
+                android:enabled="false" />
+
+            <!-- Jabatan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jabatan/Posisi"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etJabatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:text="Guru TK"
+                android:padding="10dp"
+                android:enabled="false" />
+
+            <!-- NISN -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NISN"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etNisn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:text="12345678901"
+                android:padding="10dp"
+                android:enabled="false" />
+
+            <!-- Alamat -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:text="Jl. Merdeka No. 12, Jember"
+                android:padding="10dp"
+                android:enabled="false" />
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:text="amelia@gmail.com"
+                android:padding="10dp"
+                android:enabled="false" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

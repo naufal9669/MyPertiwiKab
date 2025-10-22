@@ -1,14 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="center"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_gradient"
+    android:padding="20dp">
 
-    <TextView
-        android:text="Ini absensi Fragment"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Tombol Back -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Kembali"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvAbsensiTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absensi"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Kartu Profil -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp"
+            android:elevation="3dp">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_teacher"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Icon Guru" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ibu. Amelia S.pd"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#0A1F44" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guru Kelas B1"
+                    android:textSize="14sp"
+                    android:textColor="#555555" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Kalimat motivasi -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guru yang hebat akan datang tepat waktu dan menginspirasi setiap hari"
+            android:textSize="14sp"
+            android:textColor="#444"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Absensi Hari Ini -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absensi Hari Ini"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="start" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnAbsensiDatang"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Absensi Datang"
+                android:backgroundTint="#001F54"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnAbsensiPulang"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Absensi Pulang"
+                android:backgroundTint="#63B3ED"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Status Absensi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Absensi Hari Ini"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="start" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_small"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔️ Sudah Absen"
+                android:textSize="14sp"
+                android:textColor="#0A1F44"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⭕ Belum Absen"
+                android:textSize="14sp"
+                android:textColor="#0A1F44"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠️ Terlambat"
+                android:textSize="14sp"
+                android:textColor="#0A1F44" />
+        </LinearLayout>
+
+        <!-- Riwayat Absensi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Riwayat Absensi"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="start" />
+
+        <TableLayout
+            android:id="@+id/tableAbsensi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="@drawable/bg_table_border"
+            android:padding="1dp">
+
+            <!-- Header -->
+            <TableRow
+                android:background="#E6E6E6"
+                android:padding="8dp">
+
+                <TextView
+                    android:text="Tanggal"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="#0A1F44" />
+
+                <TextView
+                    android:text="Jam Datang"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="#0A1F44" />
+
+                <TextView
+                    android:text="Jam Pulang"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="#0A1F44" />
+
+                <TextView
+                    android:text="Status"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="#0A1F44" />
+            </TableRow>
+
+            <!-- Isi Tabel -->
+            <TableRow>
+                <TextView android:text="18 Oktober 2025" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="07:30" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="15:00" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="Hadir" android:gravity="center" android:padding="6dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="17 Oktober 2025" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="07:40" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="15:30" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="Terlambat" android:gravity="center" android:padding="6dp" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="15 Oktober 2025" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="07:20" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="15:00" android:gravity="center" android:padding="6dp" />
+                <TextView android:text="Hadir" android:gravity="center" android:padding="6dp" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+</ScrollView>
