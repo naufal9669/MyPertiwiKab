@@ -38,7 +38,7 @@
             <ImageView
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@drawable/ic_teacher"
+                android:src="@drawable/teacher"
                 android:layout_marginEnd="16dp"
                 android:contentDescription="Icon Guru" />
 
@@ -82,7 +82,7 @@
             android:gravity="center"
             android:layout_marginBottom="32dp">
 
-            <!-- Absensi 100% -->
+            <!-- Absensi Datang -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 android:layout_width="16dp"
                 android:layout_height="wrap_content" />
 
-            <!-- Absensi 95% -->
+            <!-- Absensi Pulang -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -144,26 +144,6 @@
         </LinearLayout>
 
         <!-- Tombol -->
-        <Button
-            android:id="@+id/btnIzin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pengajuan Izin"
-            android:textAllCaps="false"
-            android:backgroundTint="#001F54"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="12dp"
-            android:padding="12dp" />
-
-        <Button
-            android:id="@+id/btnRapor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="E-Rapor"
-            android:textAllCaps="false"
-            android:backgroundTint="#63B3ED"
-            android:textColor="@android:color/white"
-            android:padding="12dp" />
 
     </LinearLayout>
 </ScrollView>

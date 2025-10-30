@@ -5,18 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class dashboard extends AppCompatActivity {
+public class FiturActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard);
+        setContentView(R.layout.halamanfitur);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
         // Tampilkan halaman home default saat pertama buka
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, new home())
+                .replace(R.id.nav_host_fragment, new HomeFragment())
                 .commit();
 
         bottomNav.setOnItemSelectedListener(item -> {
@@ -24,14 +24,14 @@ public class dashboard extends AppCompatActivity {
             int id = item.getItemId();
 
             // Gunakan if-else alih-alih switch-case
-            if (id == R.id.nav_absensi) {
-                selectedFragment = new absensi(); // nanti buat class halamannotes
-            } else if (id == R.id.nav_izin) {
-                selectedFragment = new izin(); // nanti buat class halamancalendar
-            } else if (id == R.id.nav_home) {
-                selectedFragment = new home();
-            } else if (id == R.id.nav_raport) {
-                selectedFragment = new raport(); // nanti buat class halamanmood
+            if (id == R.id.nav_Datasiswa) {
+                selectedFragment = new AbsensiFragment(); // nanti buat class halamannotes
+            } else if (id == R.id.nav_Absensi) {
+                selectedFragment = new IzinFragment(); // nanti buat class halamancalendar
+            } else if (id == R.id.nav_Dashboard) {
+                selectedFragment = new HomeFragment();
+            } else if (id == R.id.nav_profil) {
+                selectedFragment = new ProfilFragment(); // nanti buat class halamanmood
             }
 
             if (selectedFragment != null) {

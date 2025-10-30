@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-public class loginactivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     MaterialButton buttonLogin;
     TextView textRegister;
@@ -30,12 +30,6 @@ public class loginactivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
 
-        // Kalau sudah login sebelumnya, langsung ke dashboard
-        if (prefs.getBoolean("isLoggedIn", false)) {
-            startActivity(new Intent(loginactivity.this, dashboard.class));
-            finish();
-        }
-
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,19 +40,19 @@ public class loginactivity extends AppCompatActivity {
                 String savedPassword = prefs.getString("password", "12345");
 
                 if (inputEmail.equals(savedEmail) && inputPassword.equals(savedPassword)) {
-                    Toast.makeText(loginactivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
 
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean("isLoggedIn", true);
                     editor.apply();
 
-                    Intent explicitIntent = new Intent(loginactivity.this, dashboard
+                    Intent explicitIntent = new Intent(LoginActivity.this, FiturActivity
 
                             .class);
                     startActivity(explicitIntent);
                     finish();
                 } else {
-                    Toast.makeText(loginactivity.this, "Email atau Password salah!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Email atau Password salah!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -66,7 +60,7 @@ public class loginactivity extends AppCompatActivity {
         textRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent explicitIntent = new Intent(loginactivity.this, registeractivity.class);
+                Intent explicitIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(explicitIntent);
             }
         });

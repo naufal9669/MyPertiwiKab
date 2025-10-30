@@ -1,132 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/bg_gradient"
-    android:padding="20dp">
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:padding="20dp">
 
-        <!-- Tombol Back -->
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="start"
-            android:src="@drawable/ic_arrow_back"
-            android:contentDescription="Kembali"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Judul -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pengajuan izin"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="#0A1F44"
-            android:layout_marginBottom="28dp" />
-
-        <!-- Label Tanggal -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#0A1F44"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Pilih Tanggal -->
+        <!-- Tombol Back dan Judul -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_input"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Kembali" />
+
+            <TextView
+                android:id="@+id/tvJudul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Absensi"
+                android:textColor="#0A1F44"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Kartu Profil -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_white"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="3dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgGuru"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/teacher"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_circle_white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNamaGuru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amelia S.pd"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#0A1F44" />
+
+                <TextView
+                    android:id="@+id/tvJabatanGuru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guru Kelas BI"
+                    android:textSize="14sp"
+                    android:textColor="#555555" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Absensi Hari Ini -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Absensi Hari Ini"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Tombol Absen Datang dan Pulang -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnAbsenDatang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#001F54"
+                android:text="Absen Datang"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/btnAbsenPulang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#6BC9FF"
+                android:text="Absen Pulang"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <!-- Status Absensi Hari Ini -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Absensi Hari ini"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_transparent"
             android:padding="12dp"
             android:layout_marginBottom="20dp">
 
             <TextView
-                android:id="@+id/tvTanggal"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Pilih Tanggal"
-                android:textColor="#555555"
-                android:textSize="15sp" />
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="✔️ sudah Absen"
+                android:textColor="#0A1F44"
+                android:textSize="14sp" />
 
-            <ImageView
-                android:id="@+id/btnPilihTanggal"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_calendar"
-                android:contentDescription="Pilih tanggal" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#22000000"
+                android:layout_marginVertical="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="⭕ Belum Absen"
+                android:textColor="#0A1F44"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#22000000"
+                android:layout_marginVertical="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="⏰ Terlambat"
+                android:textColor="#0A1F44"
+                android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Label Jenis Izin -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jenis izin"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#0A1F44"
-            android:layout_marginBottom="8dp" />
 
-        <!-- Dropdown Jenis Izin -->
-        <Spinner
-            android:id="@+id/spinnerJenisIzin"
+
+        <!-- Riwayat Absensi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Riwayat Absensi"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Tanggal -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_card_input"
-            android:spinnerMode="dropdown"
             android:padding="12dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="18 Oktober 2025"
+                android:textColor="#0A1F44"
+                android:textSize="14sp"
+                android:textAlignment="textEnd"/>
+        </LinearLayout>
 
-        <!-- Label Deskripsi -->
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jam Datang"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Jam Datang -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Deskripsi"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#0A1F44"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Input Deskripsi -->
-        <EditText
-            android:id="@+id/etDeskripsi"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
             android:background="@drawable/bg_card_input"
-            android:gravity="start|top"
-            android:hint="Alasan izin"
             android:padding="12dp"
-            android:textSize="15sp"
-            android:textColor="#000"
-            android:textColorHint="#888"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="07:00 WIB"
+                android:textColor="#0A1F44"
+                android:textSize="14sp"
+                android:textAlignment="textEnd"/>
+        </LinearLayout>
 
-        <!-- Tombol Ajukan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jam Pulang"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp"/>
+
+
+        <!-- Jam Pulang -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_input"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="13:00 WIB"
+                android:textColor="#0A1F44"
+                android:textSize="14sp"
+                android:textAlignment="textEnd"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jam Pulang"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0A1F44"
+            android:layout_marginBottom="10dp"/>
+
+
+        <!-- Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_input"
+            android:padding="12dp"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hadir"
+                android:textColor="#0A1F44"
+                android:textSize="14sp"
+                android:textAlignment="textEnd"/>
+        </LinearLayout>
+
+
+
+        <!-- Tombol Pengajuan Izin -->
         <Button
-            android:id="@+id/btnAjukanIzin"
+            android:id="@+id/btnPengajuanIzin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ajukan izin"
+            android:text="Pengajuan izin"
             android:backgroundTint="#001F54"
-            android:textColor="@android:color/white"
+            android:textColor="#FFFFFF"
             android:textAllCaps="false"
             android:textSize="16sp"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:layout_gravity="center" />
+            android:padding="12dp" />
 
     </LinearLayout>
 </ScrollView>

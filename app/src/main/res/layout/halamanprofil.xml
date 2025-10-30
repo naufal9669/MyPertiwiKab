@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
@@ -11,15 +12,37 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Tombol Back -->
-        <ImageButton
-            android:id="@+id/btnBackProfil"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="start"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_arrow_back"
-            android:contentDescription="Kembali" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Tombol Back -->
+            <ImageButton
+                android:id="@+id/btnBackProfil"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Kembali"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <!-- Spacer agar tombol logout ke kanan -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <!-- Tombol Logout -->
+            <ImageButton
+                android:id="@+id/btnLogOut"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/logout25"
+                android:contentDescription="Logout"
+                tools:ignore="TouchTargetSizeCheck"/>
+        </LinearLayout>
 
         <!-- Judul -->
         <TextView
@@ -41,7 +64,13 @@
             android:src="@drawable/ic_avatar_woman"
             android:contentDescription="Foto Profil"
             android:background="@drawable/bg_circle"
-            android:padding="8dp" />
+            android:padding="8dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus"
+            android:layout_marginTop="8dp"/>
 
         <!-- Nama Guru -->
         <TextView
@@ -84,7 +113,8 @@
                 android:background="@drawable/bg_input"
                 android:text="Amelia S.pd"
                 android:padding="10dp"
-                android:enabled="false" />
+                android:enabled="false"
+                tools:ignore="TouchTargetSizeCheck"/>
 
             <!-- Jabatan -->
             <TextView
@@ -103,7 +133,8 @@
                 android:background="@drawable/bg_input"
                 android:text="Guru TK"
                 android:padding="10dp"
-                android:enabled="false" />
+                android:enabled="false"
+                tools:ignore="TouchTargetSizeCheck"/>
 
             <!-- NISN -->
             <TextView
@@ -122,7 +153,8 @@
                 android:background="@drawable/bg_input"
                 android:text="12345678901"
                 android:padding="10dp"
-                android:enabled="false" />
+                android:enabled="false"
+                tools:ignore="TouchTargetSizeCheck"/>
 
             <!-- Alamat -->
             <TextView
@@ -141,7 +173,8 @@
                 android:background="@drawable/bg_input"
                 android:text="Jl. Merdeka No. 12, Jember"
                 android:padding="10dp"
-                android:enabled="false" />
+                android:enabled="false"
+                tools:ignore="TouchTargetSizeCheck"/>
 
             <!-- Email -->
             <TextView
@@ -160,7 +193,8 @@
                 android:background="@drawable/bg_input"
                 android:text="amelia@gmail.com"
                 android:padding="10dp"
-                android:enabled="false" />
+                android:enabled="false"
+                tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
 
     </LinearLayout>

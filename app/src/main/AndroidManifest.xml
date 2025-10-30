@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPertiwiKab">
 
-        <!-- Login sebagai entry point -->
-        <activity android:name=".loginactivity"
+        <!-- Login: halaman pertama saat aplikasi dibuka -->
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +21,13 @@
         </activity>
 
         <!-- Register -->
-        <activity android:name=".registeractivity" />
+        <activity android:name=".RegisterActivity" />
 
-        <!-- Main -->
-        <activity android:name=".dashboard" />
-
+        <!-- Dashboard (halaman utama setelah login) -->
+        <activity android:name=".FiturActivity" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
-
 
 </manifest>
