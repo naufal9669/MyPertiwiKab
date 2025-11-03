@@ -50,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
                     finish();
                 }
             }
+
+
         });
 
         textLogin.setOnClickListener(new View.OnClickListener() {

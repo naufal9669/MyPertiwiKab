@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBackInfo"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#000000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informasi"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginEnd="24dp" />
+        </LinearLayout>
+
+        <!-- Foto profil -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_person"
+            android:background="@drawable/bg_circle_white"
+            android:padding="15dp" />
+
+        <!-- Nama -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan nama"
+            android:textSize="14sp" />
+
+        <!-- Kelas -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kelas"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editKelas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan kelas"
+            android:textSize="14sp" />
+
+        <!-- NISN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NISN"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editNISN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan NISN"
+            android:inputType="number"
+            android:textSize="14sp" />
+
+        <!-- Nama orang tua/wali -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama orang tua/wali"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editOrtu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan nama orang tua/wali"
+            android:textSize="14sp" />
+
+        <!-- Nomor orang tua/wali -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nomer orang tua/wali"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editNomorOrtu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan nomor orang tua/wali"
+            android:inputType="phone"
+            android:textSize="14sp" />
+
+        <!-- Alamat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/editAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:hint="Masukkan alamat"
+            android:textSize="14sp"
+            android:lines="2"
+            android:gravity="top" />
+    </LinearLayout>
+</ScrollView>

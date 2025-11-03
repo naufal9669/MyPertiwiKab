@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="arraysizin">
+        <item>Pilih jenis izin</item>
+        <item>Izin Sakit</item>
+        <item>Izin Pribadi</item>
+        <item>Izin Acara Keluarga</item>
+        <item>Izin Lainnya</item>
+    </string-array>
+</resources>
