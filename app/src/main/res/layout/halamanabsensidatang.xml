@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Kembali" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Absensi datang"
+                android:gravity="center"
+                android:textColor="#0A1F44"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Label Tanggal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal"
+            android:textColor="#0A1F44"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Input Tanggal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_rounded"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <EditText
+                android:id="@+id/inputTanggal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Pilih Tanggal"
+                android:background="@android:color/transparent"
+                android:inputType="none"
+                android:focusable="false"
+                android:textColor="#0A1F44"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/btnPilihTanggal"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_calendar"
+                android:contentDescription="Pilih tanggal"
+                app:tint="#001F54" />
+        </LinearLayout>
+
+        <!-- Nama Guru -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama guru"
+            android:textColor="#0A1F44"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/inputNamaGuru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan nama guru"
+            android:background="@drawable/bg_input_rounded"
+            android:padding="12dp"
+            android:textColor="#0A1F44"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Waktu Datang -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waktu datang"
+            android:textColor="#0A1F44"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/inputWaktuDatang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan waktu datang"
+            android:background="@drawable/bg_input_rounded"
+            android:padding="12dp"
+            android:textColor="#0A1F44"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Tombol Absen -->
+        <Button
+            android:id="@+id/btnAbsen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Absen"
+            android:background="@drawable/bg_button_rounded"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:padding="12dp" />
+    </LinearLayout>
+</ScrollView>

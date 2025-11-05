@@ -19,6 +19,16 @@ public class FiturActivity extends AppCompatActivity {
                 .replace(R.id.nav_host_fragment, new HomeFragment())
                 .commit();
 
+        String fragmentToOpen = getIntent().getStringExtra("openFragment");
+
+        if ("absensi".equals(fragmentToOpen)) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.halamanabsensi, new AbsensiFragment())
+                    .commit();
+        }
+
+
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             int id = item.getItemId();

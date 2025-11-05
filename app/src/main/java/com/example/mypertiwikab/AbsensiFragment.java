@@ -24,10 +24,24 @@ public class AbsensiFragment extends Fragment {
 
         // Ambil tombol dari layout
         Button btnPengajuanIzin = view.findViewById(R.id.btnPengajuanIzin);
+        Button btnAbsenDatang = view.findViewById(R.id.btnAbsenDatang);
+        Button btnAbsenPulang = view.findViewById(R.id.btnAbsenPulang);
 
-        // Saat tombol diklik, buka PengajuanIzinActivity
+        // Tombol Pengajuan Izin → buka PengajuanIzinActivity
         btnPengajuanIzin.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), PengajuanIzinActivity.class);
+            startActivity(intent);
+        });
+
+        // Tombol Absen Datang → buka AbsensiDatangActivity
+        btnAbsenDatang.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AbsensiDatangActivity.class);
+            startActivity(intent);
+        });
+
+        // Tombol Absen Pulang (opsional: nanti bisa diarahkan ke AbsensiPulangActivity)
+        btnAbsenPulang.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), com.example.mypertiwikab.AbsensiPulangActivity.class);
             startActivity(intent);
         });
 

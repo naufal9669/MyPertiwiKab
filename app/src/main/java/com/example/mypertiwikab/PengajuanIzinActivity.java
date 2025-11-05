@@ -1,6 +1,7 @@
 package com.example.mypertiwikab;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -86,7 +87,11 @@ public class PengajuanIzinActivity extends AppCompatActivity {
         }
 
         // Nanti bisa diganti simpan ke Firebase atau database
-        String pesan = "Tanggal: " + tanggal + "\nJenis Izin: " + jenisIzin + "\nDeskripsi: " + deskripsi;
+        String pesan = "Pengajuan Berhasil!";
         Toast.makeText(this, "Izin diajukan:\n" + pesan, Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(PengajuanIzinActivity.this, FiturActivity.class);
+        intent.putExtra("openFragment", "absensi");
+        startActivity(intent);
     }
 }
