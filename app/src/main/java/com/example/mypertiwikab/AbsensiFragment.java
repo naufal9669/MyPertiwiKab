@@ -39,9 +39,9 @@ public class AbsensiFragment extends Fragment {
             startActivity(intent);
         });
 
-        // Tombol Absen Pulang (opsional: nanti bisa diarahkan ke AbsensiPulangActivity)
+        // ✅ Tombol Absen Pulang → buka AbsensiPulangActivity
         btnAbsenPulang.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), com.example.mypertiwikab.AbsensiPulangActivity.class);
+            Intent intent = new Intent(getActivity(), AbsensiPulangActivity.class);
             startActivity(intent);
         });
 

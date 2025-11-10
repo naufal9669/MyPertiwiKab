@@ -1,6 +1,7 @@
 package com.example.mypertiwikab;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -51,6 +52,9 @@ public class AbsensiDatangActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Absensi berhasil disimpan!", Toast.LENGTH_SHORT).show();
             }
+            Intent intent = new Intent(AbsensiDatangActivity.this, FiturActivity.class);
+            intent.putExtra("openFragment", "absensi");
+            startActivity(intent);
         });
     }
 

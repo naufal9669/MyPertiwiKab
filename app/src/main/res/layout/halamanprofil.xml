@@ -18,14 +18,6 @@
             android:orientation="horizontal">
 
             <!-- Tombol Back -->
-            <ImageButton
-                android:id="@+id/btnBackProfil"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_arrow_back"
-                android:contentDescription="Kembali"
-                tools:ignore="TouchTargetSizeCheck" />
 
             <!-- Spacer agar tombol logout ke kanan -->
             <View

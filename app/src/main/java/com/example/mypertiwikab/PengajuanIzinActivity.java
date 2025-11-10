@@ -88,7 +88,7 @@ public class PengajuanIzinActivity extends AppCompatActivity {
 
         // Nanti bisa diganti simpan ke Firebase atau database
         String pesan = "Pengajuan Berhasil!";
-        Toast.makeText(this, "Izin diajukan:\n" + pesan, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "\n" + pesan, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(PengajuanIzinActivity.this, FiturActivity.class);
         intent.putExtra("openFragment", "absensi");

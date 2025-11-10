@@ -24,7 +24,7 @@ public class FiturActivity extends AppCompatActivity {
         if ("absensi".equals(fragmentToOpen)) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.halamanabsensi, new AbsensiFragment())
+                    .replace(R.id.nav_host_fragment, new AbsensiFragment())
                     .commit();
         }
 

@@ -13,6 +13,9 @@
             android:name=".PengajuanIzinActivity"
             android:exported="false" />
         <!-- Login: halaman pertama saat aplikasi dibuka -->
+        <activity android:name=".AbsensiDatangActivity" />
+        <activity android:name=".AbsensiPulangActivity" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -28,9 +31,6 @@
             android:theme="@style/Theme.MyPertiwiKab.NoActionBar"
             />
 
-
-        <activity android:name=".AbsensiDatangActivity" />
-        <activity android:name=".AbsensiPulangActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
