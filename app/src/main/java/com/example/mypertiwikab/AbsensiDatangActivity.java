@@ -1,10 +1,8 @@
 package com.example.mypertiwikab;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,7 +17,7 @@ public class AbsensiDatangActivity extends AppCompatActivity {
 
     private EditText inputTanggal, inputNamaGuru, inputWaktuDatang;
     private Button btnAbsen;
-    private ImageView btnBack, btnPilihTanggal;
+    private ImageView btnBack;
     private final Calendar calendar = Calendar.getInstance();
 
     @Override
@@ -32,11 +30,18 @@ public class AbsensiDatangActivity extends AppCompatActivity {
         inputWaktuDatang = findViewById(R.id.inputWaktuDatang);
         btnAbsen = findViewById(R.id.btnAbsen);
         btnBack = findViewById(R.id.btnBack);
-        btnPilihTanggal = findViewById(R.id.btnPilihTanggal);
 
-        // Pilih tanggal
-        btnPilihTanggal.setOnClickListener(v -> showDatePicker());
-        inputTanggal.setOnClickListener(v -> showDatePicker());
+        // 🟦 AUTO-FILL TANGGAL (tidak bisa diedit)
+        String tanggalNow = new SimpleDateFormat("dd MMMM yyyy", new Locale("id", "ID"))
+                .format(calendar.getTime());
+        inputTanggal.setText(tanggalNow);
+        inputTanggal.setEnabled(false); // ❌ tidak bisa diedit
+
+        // 🟦 AUTO-FILL WAKTU DATANG (tidak bisa diedit)
+        String waktuNow = new SimpleDateFormat("HH:mm", Locale.getDefault())
+                .format(calendar.getTime());
+        inputWaktuDatang.setText(waktuNow);
+        inputWaktuDatang.setEnabled(false); // ❌ tidak bisa diedit
 
         // Tombol kembali
         btnBack.setOnClickListener(v -> onBackPressed());
@@ -44,32 +49,19 @@ public class AbsensiDatangActivity extends AppCompatActivity {
         // Tombol Absen ditekan
         btnAbsen.setOnClickListener(v -> {
             String nama = inputNamaGuru.getText().toString().trim();
-            String tanggal = inputTanggal.getText().toString().trim();
-            String waktu = inputWaktuDatang.getText().toString().trim();
 
-            if (nama.isEmpty() || tanggal.isEmpty() || waktu.isEmpty()) {
-                Toast.makeText(this, "Lengkapi semua data!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Absensi berhasil disimpan!", Toast.LENGTH_SHORT).show();
+            if (nama.isEmpty()) {
+                Toast.makeText(this, "Nama guru wajib diisi!", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            Toast.makeText(this, "Absensi berhasil disimpan!", Toast.LENGTH_SHORT).show();
+
+            // Kembali ke fragment absensi
             Intent intent = new Intent(AbsensiDatangActivity.this, FiturActivity.class);
             intent.putExtra("openFragment", "absensi");
             startActivity(intent);
+            finish();
         });
-    }
-
-    private void showDatePicker() {
-        DatePickerDialog datePicker = new DatePickerDialog(
-                this,
-                (DatePicker view, int year, int month, int dayOfMonth) -> {
-                    calendar.set(year, month, dayOfMonth);
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy", new Locale("id", "ID"));
-                    inputTanggal.setText(sdf.format(calendar.getTime()));
-                },
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-        );
-        datePicker.show();
     }
 }

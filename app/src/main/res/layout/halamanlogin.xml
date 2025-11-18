@@ -83,18 +83,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sudah punya akun? Register"
+                android:text="Sudah punya akun?  Register"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:id="@+id/textRegister" />
 
             <TextView
+                android:id="@+id/textForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lupa Password?"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+                android:paddingTop="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground" />
+
+
         </LinearLayout>
 
         <!-- Login dengan -->

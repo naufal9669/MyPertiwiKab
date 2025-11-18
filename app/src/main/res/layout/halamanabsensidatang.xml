@@ -47,36 +47,18 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp" />
 
-        <!-- Input Tanggal -->
-        <LinearLayout
+        <EditText
+            android:id="@+id/inputTanggal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_input_rounded"
-            android:orientation="horizontal"
             android:padding="12dp"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="20dp">
-
-            <EditText
-                android:id="@+id/inputTanggal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Pilih Tanggal"
-                android:background="@android:color/transparent"
-                android:inputType="none"
-                android:focusable="false"
-                android:textColor="#0A1F44"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:id="@+id/btnPilihTanggal"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_calendar"
-                android:contentDescription="Pilih tanggal"
-                app:tint="#001F54" />
-        </LinearLayout>
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
+            android:textColor="#0A1F44"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp" />
 
         <!-- Nama Guru -->
         <TextView
@@ -92,9 +74,11 @@
             android:id="@+id/inputNamaGuru"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nama guru"
             android:background="@drawable/bg_input_rounded"
             android:padding="12dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
             android:textColor="#0A1F44"
             android:textSize="14sp"
             android:layout_marginBottom="20dp" />
@@ -113,9 +97,11 @@
             android:id="@+id/inputWaktuDatang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan waktu datang"
             android:background="@drawable/bg_input_rounded"
             android:padding="12dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:enabled="false"
             android:textColor="#0A1F44"
             android:textSize="14sp"
             android:layout_marginBottom="32dp" />

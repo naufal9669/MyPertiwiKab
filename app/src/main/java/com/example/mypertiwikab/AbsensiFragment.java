@@ -23,15 +23,8 @@ public class AbsensiFragment extends Fragment {
         View view = inflater.inflate(R.layout.halamanabsensi, container, false);
 
         // Ambil tombol dari layout
-        Button btnPengajuanIzin = view.findViewById(R.id.btnPengajuanIzin);
         Button btnAbsenDatang = view.findViewById(R.id.btnAbsenDatang);
         Button btnAbsenPulang = view.findViewById(R.id.btnAbsenPulang);
-
-        // Tombol Pengajuan Izin → buka PengajuanIzinActivity
-        btnPengajuanIzin.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), PengajuanIzinActivity.class);
-            startActivity(intent);
-        });
 
         // Tombol Absen Datang → buka AbsensiDatangActivity
         btnAbsenDatang.setOnClickListener(v -> {

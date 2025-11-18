@@ -12,9 +12,9 @@
         android:title="Absensi"/>
 
     <item
-        android:id="@+id/nav_Datasiswa"
+        android:id="@+id/nav_pengajuanizin"
         android:icon="@drawable/ic_paper"
-        android:title="Datasiswa"/>
+        android:title="Izin"/>
 
     <item
         android:id="@+id/nav_profil"

@@ -34,8 +34,8 @@ public class FiturActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             // Gunakan if-else alih-alih switch-case
-            if (id == R.id.nav_Datasiswa) {
-                selectedFragment = new DataSiswaFragment(); // nanti buat class halamannotes
+            if (id == R.id.nav_pengajuanizin) {
+                selectedFragment = new PengajuanIzinActivity(); // nanti buat class halamannotes
             } else if (id == R.id.nav_Absensi) {
                 selectedFragment = new AbsensiFragment(); // nanti buat class halamancalendar
             } else if (id == R.id.nav_Dashboard) {

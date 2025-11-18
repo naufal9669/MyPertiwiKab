@@ -15,7 +15,7 @@ import com.google.android.material.button.MaterialButton;
 public class LoginActivity extends AppCompatActivity {
 
     MaterialButton buttonLogin;
-    TextView textRegister;
+    TextView textRegister, textLupaPassword;
     EditText editTextEmail, editTextPassword;
 
     @Override
@@ -25,44 +25,45 @@ public class LoginActivity extends AppCompatActivity {
 
         buttonLogin = findViewById(R.id.buttonLogin);
         textRegister = findViewById(R.id.textRegister);
+        textLupaPassword = findViewById(R.id.textForgotPassword); // ⬅ Tambahin ini
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
 
         SharedPreferences prefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String inputEmail = editTextEmail.getText().toString().trim();
-                String inputPassword = editTextPassword.getText().toString().trim();
+        // Tombol Login
+        buttonLogin.setOnClickListener(v -> {
+            String inputEmail = editTextEmail.getText().toString().trim();
+            String inputPassword = editTextPassword.getText().toString().trim();
 
-                String savedEmail = prefs.getString("email", "admin@gmail.com");
-                String savedPassword = prefs.getString("password", "12345");
+            String savedEmail = prefs.getString("email", "admin@gmail.com");
+            String savedPassword = prefs.getString("password", "12345");
 
-                if (inputEmail.equals(savedEmail) && inputPassword.equals(savedPassword)) {
-                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+            if (inputEmail.equals(savedEmail) && inputPassword.equals(savedPassword)) {
+                Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
 
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("isLoggedIn", true);
-                    editor.apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
 
-                    Intent explicitIntent = new Intent(LoginActivity.this, FiturActivity
-
-                            .class);
-                    startActivity(explicitIntent);
-                    finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, "Email atau Password salah!", Toast.LENGTH_SHORT).show();
-                }
+                Intent explicitIntent = new Intent(LoginActivity.this, FiturActivity.class);
+                startActivity(explicitIntent);
+                finish();
+            } else {
+                Toast.makeText(LoginActivity.this, "Email atau Password salah!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        textRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent explicitIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(explicitIntent);
-            }
+        // Tombol Register
+        textRegister.setOnClickListener(v -> {
+            Intent explicitIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(explicitIntent);
+        });
+
+        // Tombol Lupa Password  ⬅ Wajib Ada!
+        textLupaPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
     }
 }

@@ -58,12 +58,6 @@
             android:background="@drawable/bg_circle"
             android:padding="8dp"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/plus"
-            android:layout_marginTop="8dp"/>
-
         <!-- Nama Guru -->
         <TextView
             android:id="@+id/tvNamaGuru"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/bg_gradient">
+    android:background="@drawable/bg_gradient"
+    tools:ignore="ScrollViewCount">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Tombol Back dan Judul -->
+        <!-- Judul -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +86,7 @@
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp" />
 
-        <!-- Tombol Absen Datang dan Pulang -->
+        <!-- Tombol Absen -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,11 +118,11 @@
                 android:padding="10dp" />
         </LinearLayout>
 
-        <!-- Status Absensi Hari Ini -->
+        <!-- Status Absensi -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status Absensi Hari ini"
+            android:text="Status Absensi Hari Ini"
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#0A1F44"
@@ -175,8 +176,6 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-
-
         <!-- Riwayat Absensi -->
         <TextView
             android:layout_width="wrap_content"
@@ -187,6 +186,7 @@
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp" />
 
+        <!-- Tanggal -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -196,7 +196,6 @@
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp" />
 
-        <!-- Tanggal -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -212,6 +211,7 @@
                 android:textAlignment="textEnd"/>
         </LinearLayout>
 
+        <!-- Jam Datang -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -221,7 +221,6 @@
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp" />
 
-        <!-- Jam Datang -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -237,6 +236,7 @@
                 android:textAlignment="textEnd"/>
         </LinearLayout>
 
+        <!-- Jam Pulang -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -246,8 +246,6 @@
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp"/>
 
-
-        <!-- Jam Pulang -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -263,17 +261,16 @@
                 android:textAlignment="textEnd"/>
         </LinearLayout>
 
+        <!-- Status -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jam Pulang"
+            android:text="Status"
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#0A1F44"
             android:layout_marginBottom="10dp"/>
 
-
-        <!-- Status -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -288,20 +285,6 @@
                 android:textSize="14sp"
                 android:textAlignment="textEnd"/>
         </LinearLayout>
-
-
-
-        <!-- Tombol Pengajuan Izin -->
-        <Button
-            android:id="@+id/btnPengajuanIzin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pengajuan izin"
-            android:backgroundTint="#001F54"
-            android:textColor="#FFFFFF"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:padding="12dp" />
 
     </LinearLayout>
 </ScrollView>
