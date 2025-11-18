@@ -88,6 +88,8 @@
                 android:textSize="14sp"
                 android:id="@+id/textRegister" />
 
+
+
             <TextView
                 android:id="@+id/textForgotPassword"
                 android:layout_width="wrap_content"
