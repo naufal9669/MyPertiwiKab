@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     EditText etEmail;
-    Button btnNext, btnOk;
+    Button btnNext, btnBack, btnOk;
     View popupEmail;
 
     @Override
@@ -24,6 +24,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         popupEmail = findViewById(R.id.popupEmail);
         btnOk = findViewById(R.id.btnOk);
+        btnBack = findViewById(R.id.btnBack);
 
         btnNext.setOnClickListener(v -> {
             String email = etEmail.getText().toString();
@@ -35,6 +36,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
             popupEmail.setVisibility(View.VISIBLE);
         });
+        btnBack.setOnClickListener(v -> onBackPressed());
+
 
         btnOk.setOnClickListener(v -> {
             popupEmail.setVisibility(View.GONE);

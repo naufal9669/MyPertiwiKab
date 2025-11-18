@@ -1,19 +1,23 @@
 package com.example.mypertiwikab;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
     EditText etPassBaru, etKonfirmasi;
-    Button btnKirim, btnOkDone;
+    Button btnKirim, btnOkDone, btnBack2;
     View popupSuccess;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,9 @@ public class ResetPasswordActivity extends AppCompatActivity {
         btnKirim = findViewById(R.id.btnKirim);
         popupSuccess = findViewById(R.id.popupSuccess);
         btnOkDone = findViewById(R.id.btnOkDone);
+        btnBack2 = findViewById(R.id.btnBack2);
+
+        btnBack2.setOnClickListener(v -> onBackPressed());
 
         btnKirim.setOnClickListener(v -> {
             String pass1 = etPassBaru.getText().toString();
@@ -39,12 +46,18 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 return;
             }
 
+            // Tampilkan popup sukses
             popupSuccess.setVisibility(View.VISIBLE);
         });
 
-        btnOkDone.setOnClickListener(v -> {
-            popupSuccess.setVisibility(View.GONE);
-            finish(); // kembali ke login
-        });
+        // Perbaikan pada baris ini (ditambah tanda )
+        btnOkDone.setOnClickListener(this::onClick);
+    }
+
+    private void onClick(View v) {
+        popupSuccess.setVisibility(View.GONE);
+        Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

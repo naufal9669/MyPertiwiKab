@@ -9,9 +9,8 @@
         android:roundIcon="@drawable/logo_tk_pertiwi"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPertiwiKab">
-        <activity
-            android:name=".PengajuanIzinActivity"
-            android:exported="false" />
+        <activity android:name=".ForgotPasswordActivity"/>
+        <activity android:name=".ResetPasswordActivity"/>
         <!-- Login: halaman pertama saat aplikasi dibuka -->
         <activity android:name=".AbsensiDatangActivity" />
         <activity android:name=".AbsensiPulangActivity" />
