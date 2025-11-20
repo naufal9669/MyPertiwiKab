@@ -4,36 +4,43 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo_tk_pertiwi"
+        android:icon="@drawable/logo_tk_pertiwi_white"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_tk_pertiwi"
+        android:roundIcon="@drawable/logo_tk_pertiwi_white"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPertiwiKab">
-        <activity android:name=".ForgotPasswordActivity"/>
-        <activity android:name=".ResetPasswordActivity"/>
-        <!-- Login: halaman pertama saat aplikasi dibuka -->
-        <activity android:name=".AbsensiDatangActivity" />
-        <activity android:name=".AbsensiPulangActivity" />
 
+        <!-- Splash Screen sebagai halaman pertama -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.MyPertiwiKab.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Register -->
-        <activity android:name=".RegisterActivity" /> <!-- Dashboard (halaman utama setelah login) -->
-        <activity android:name=".FiturActivity"
-            android:theme="@style/Theme.MyPertiwiKab.NoActionBar"
-            />
+        </activity>
 
+        <!-- Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.MyPertiwiKab.NoActionBar" />
+
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".AbsensiDatangActivity" />
+        <activity android:name=".AbsensiPulangActivity" />
+        <activity android:name=".OTPVerificationActivity" />
+
+        <activity
+            android:name=".FiturActivity"
+            android:theme="@style/Theme.MyPertiwiKab.NoActionBar" />
+        <activity android:name=".RegisterActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

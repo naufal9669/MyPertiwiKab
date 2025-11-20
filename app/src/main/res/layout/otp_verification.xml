@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/otpRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/white">
+
+    <!-- Tombol Back di pojok kiri atas -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_arrow_back"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Kembali"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <!-- Konten utama -->
+    <LinearLayout
+        android:id="@+id/contentBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tvOtpTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verifikasi OTP"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#002D62" />
+
+        <TextView
+            android:id="@+id/tvOtpSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masukkan 4 digit kode yang dikirim ke email Anda"
+            android:textSize="14sp"
+            android:textColor="#555"
+            android:layout_marginTop="8dp" />
+
+        <!-- Kotak OTP -->
+        <LinearLayout
+            android:id="@+id/otpBoxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/otp1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:background="@drawable/otp_box"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:maxLength="1"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:id="@+id/otp2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:background="@drawable/otp_box"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:maxLength="1"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:id="@+id/otp3"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:background="@drawable/otp_box"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:maxLength="1"
+                android:textAlignment="center"/>
+
+            <EditText
+                android:id="@+id/otp4"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:background="@drawable/otp_box"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:maxLength="1"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:30"
+            android:textSize="14sp"
+            android:textColor="#777"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnResend"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Kirim Ulang Kode"
+            android:layout_marginTop="12dp"
+            android:enabled="false"
+            android:backgroundTint="#003A75"
+            android:textColor="#FFF"/>
+
+        <Button
+            android:id="@+id/btnVerify"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Verifikasi"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#0A64FF"
+            android:textColor="#FFF"/>
+    </LinearLayout>
+
+</RelativeLayout>

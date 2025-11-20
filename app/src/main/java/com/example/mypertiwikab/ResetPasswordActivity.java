@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResetPasswordActivity extends AppCompatActivity {
@@ -30,6 +29,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
         btnOkDone = findViewById(R.id.btnOkDone);
         btnBack2 = findViewById(R.id.btnBack2);
 
+        // optional: bisa gunakan email dari intent untuk menampilkan info atau validasi lebih lanjut
+        String emailFromIntent = getIntent().getStringExtra("email");
+        if (emailFromIntent != null && !emailFromIntent.isEmpty()) {
+            Toast.makeText(this, "Reset password untuk: " + emailFromIntent, Toast.LENGTH_SHORT).show();
+        }
+
         btnBack2.setOnClickListener(v -> onBackPressed());
 
         btnKirim.setOnClickListener(v -> {
@@ -46,11 +51,17 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 return;
             }
 
+            // Simpan password baru ke SharedPreferences (jika menggunakan shared prefs)
+            // userPrefs adalah file yang dipakai di app
+            getSharedPreferences("userPrefs", MODE_PRIVATE)
+                    .edit()
+                    .putString("password", pass1)
+                    .apply();
+
             // Tampilkan popup sukses
             popupSuccess.setVisibility(View.VISIBLE);
         });
 
-        // Perbaikan pada baris ini (ditambah tanda )
         btnOkDone.setOnClickListener(this::onClick);
     }
 
