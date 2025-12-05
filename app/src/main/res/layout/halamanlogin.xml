@@ -118,13 +118,6 @@
             </LinearLayout>
 
             <!-- Login dengan -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login dengan"
-                android:textColor="#002D62"
-                android:textSize="14sp"
-                android:layout_marginTop="20dp" />
 
             <!-- Ikon Sosial -->
             <LinearLayout
@@ -132,26 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_google" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_x" />
-            </LinearLayout>
+                android:gravity="center"/>
 
         </LinearLayout>
 

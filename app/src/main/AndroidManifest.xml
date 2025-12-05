@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    package="com.example.mypertiwikab">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo_tk_pertiwi_white"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_tk_pertiwi_white"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyPertiwiKab">
+        android:theme="@style/Theme.MyPertiwiKab"
+        android:usesCleartextTraffic="true"> <activity
+        android:name=".SplashActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <!-- Splash Screen sebagai halaman pertama -->
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MyPertiwiKab.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- Login -->
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.MyPertiwiKab.NoActionBar" />
-
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".OTPVerificationActivity" />
         <activity android:name=".ResetPasswordActivity" />
+
+        <activity android:name=".FiturActivity" />
+
         <activity android:name=".AbsensiDatangActivity" />
         <activity android:name=".AbsensiPulangActivity" />
-        <activity android:name=".OTPVerificationActivity" />
-
-        <activity
-            android:name=".FiturActivity"
-            android:theme="@style/Theme.MyPertiwiKab.NoActionBar" />
-        <activity android:name=".RegisterActivity" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
     </application>
 

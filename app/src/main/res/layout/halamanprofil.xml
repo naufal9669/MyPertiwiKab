@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,134 +16,152 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Tombol Back -->
-
-            <!-- Spacer agar tombol logout ke kanan -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <!-- Tombol Logout -->
+            android:orientation="horizontal"
+            android:gravity="end">
             <ImageButton
-                android:id="@+id/btnLogOut"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:id="@+id/btnLogOutFinal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/logout25"
                 android:contentDescription="Logout"
+                android:scaleType="centerInside"
                 tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
 
-        <!-- Judul -->
         <TextView
             android:id="@+id/tvProfilTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profil"
-            android:textSize="20sp"
+            android:text="Profil Saya"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="-10dp"
             android:textColor="@android:color/black" />
 
-        <!-- Foto Profil -->
-        <ImageView
-            android:id="@+id/imgProfil"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_avatar_woman"
-            android:contentDescription="Foto Profil"
-            android:background="@drawable/bg_circle"
-            android:padding="8dp"/>
-
-        <!-- Nama Guru -->
-        <TextView
-            android:id="@+id/tvNamaGuru"
+        <FrameLayout
+            android:id="@+id/btnGantiFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Amelia S.Pd"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/imgProfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_avatar_woman"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_menu_camera"
+                android:background="@drawable/bg_circle_white"
+                android:padding="6dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="#001F54"
+                android:elevation="4dp"/>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ketuk foto untuk mengganti"
+            android:textSize="12sp"
+            android:textColor="#555555"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tvNamaGuruHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Guru"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:textColor="@android:color/black" />
 
-        <!-- Garis Pemisah -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             android:background="#DADADA" />
 
-        <!-- Informasi Profil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="20dp">
 
-            <!-- Nama -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama"
+                android:text="Nama Lengkap"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="4dp" />
-
             <EditText
-                android:id="@+id/etNama"
+                android:id="@+id/etNamaField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input"
-                android:text="Amelia S.pd"
-                android:padding="10dp"
-                android:enabled="false"
-                tools:ignore="TouchTargetSizeCheck"/>
+                android:padding="12dp"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:hint="Nama Lengkap"
+                android:textColorHint="#888888"/>
 
-            <!-- Jabatan -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jabatan/Posisi"
+                android:text="Jabatan"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp" />
-
             <EditText
                 android:id="@+id/etJabatan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input"
-                android:text="Guru TK"
-                android:padding="10dp"
-                android:enabled="false"
-                tools:ignore="TouchTargetSizeCheck"/>
+                android:padding="12dp"
+                android:inputType="textCapWords"
+                android:textColor="@android:color/black"
+                android:hint="Jabatan"
+                android:textColorHint="#888888"/>
 
-            <!-- NISN -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NISN"
+                android:text="NISN / NIP"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp" />
-
             <EditText
                 android:id="@+id/etNisn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input"
-                android:text="12345678901"
-                android:padding="10dp"
-                android:enabled="false"
-                tools:ignore="TouchTargetSizeCheck"/>
+                android:padding="12dp"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:hint="Nomor Identitas"
+                android:textColorHint="#888888"/>
 
-            <!-- Alamat -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,18 +170,17 @@
                 android:textColor="@android:color/black"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp" />
-
             <EditText
                 android:id="@+id/etAlamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input"
-                android:text="Jl. Merdeka No. 12, Jember"
-                android:padding="10dp"
-                android:enabled="false"
-                tools:ignore="TouchTargetSizeCheck"/>
+                android:padding="12dp"
+                android:inputType="textMultiLine"
+                android:textColor="@android:color/black"
+                android:hint="Alamat Lengkap"
+                android:textColorHint="#888888"/>
 
-            <!-- Email -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,17 +189,29 @@
                 android:textColor="@android:color/black"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp" />
-
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input"
-                android:text="amelia@gmail.com"
-                android:padding="10dp"
+                android:padding="12dp"
                 android:enabled="false"
-                tools:ignore="TouchTargetSizeCheck"/>
+                android:textColor="@android:color/black"
+                android:hint="Email"
+                android:textColorHint="#888888"/>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSimpanFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Perubahan"
+            android:backgroundTint="#001F54"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"/>
 
     </LinearLayout>
 </ScrollView>

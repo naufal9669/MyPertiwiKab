@@ -6,7 +6,6 @@
     android:padding="24dp"
     android:background="@color/white">
 
-    <!-- Tombol Back di pojok kiri atas -->
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="28dp"
@@ -18,7 +17,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <!-- Konten utama -->
     <LinearLayout
         android:id="@+id/contentBox"
         android:layout_width="match_parent"
@@ -46,7 +44,6 @@
             android:textColor="#555"
             android:layout_marginTop="8dp" />
 
-        <!-- Kotak OTP -->
         <LinearLayout
             android:id="@+id/otpBoxes"
             android:layout_width="wrap_content"

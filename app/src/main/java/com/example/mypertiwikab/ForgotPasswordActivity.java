@@ -11,26 +11,35 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * ForgotPasswordActivity:
- * - Validasi email
- * - Generate OTP (4-digit) dan simpan di SharedPreferences
- * - Tampilkan popup bahwa OTP dikirim (simulasi) -> btnOk menuju OTPVerificationActivity
- */
+// API Imports WAJIB
+import com.example.mypertiwikab.api.ApiClient;
+import com.example.mypertiwikab.api.ApiService;
+import com.example.mypertiwikab.model.DefaultResponse;
+import com.example.mypertiwikab.model.OtpResponse;
+import com.example.mypertiwikab.utils.SessionManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     EditText etEmail;
     Button btnNext, btnBack, btnOk;
     View popupEmail;
 
-    private static final String PREFS = "userPrefs";
-    private static final String KEY_PENDING_OTP = "pending_otp";
+    private static final String PREFS_OTP = "userPrefsOTP";
     private static final String KEY_PENDING_EMAIL = "pending_email";
+    private static final String KEY_PENDING_GURU_ID = "pending_guru_id";
+
+    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgot_password);
+
+        apiService = ApiClient.getClient().create(ApiService.class);
 
         etEmail = findViewById(R.id.etEmail);
         btnNext = findViewById(R.id.btnNext);
@@ -38,52 +47,65 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         btnOk = findViewById(R.id.btnOk);
         btnBack = findViewById(R.id.btnBack);
 
-        // Next -> validate email, generate OTP, show popup
         btnNext.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
 
+            if (email.isEmpty()) {
+                etEmail.setError("Email tidak boleh kosong");
+                return;
+            }
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 etEmail.setError("Format email salah");
                 return;
             }
 
-            // Generate 4-digit OTP
-            String otp = generateOtp4();
-
-            // Save OTP & email to SharedPreferences (simulation of server)
-            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString(KEY_PENDING_OTP, otp);
-            editor.putString(KEY_PENDING_EMAIL, email);
-            editor.apply();
-
-            // Simulate sending email (for dev: show toast and popup)
-            Toast.makeText(this, "OTP dikirim ke: " + email + " (kode: " + otp + ")", Toast.LENGTH_LONG).show();
-
-            // Show popup overlay
-            popupEmail.setVisibility(View.VISIBLE);
+            sendOtpApi(email);
         });
 
-        // Back button
         btnBack.setOnClickListener(v -> onBackPressed());
 
         // Popup OK -> buka OTP verification activity
         btnOk.setOnClickListener(v -> {
             popupEmail.setVisibility(View.GONE);
 
-            // Ambil email dari prefs (yang baru saja disimpan)
-            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences prefs = getSharedPreferences(PREFS_OTP, MODE_PRIVATE);
             String email = prefs.getString(KEY_PENDING_EMAIL, "");
+            String guruId = prefs.getString(KEY_PENDING_GURU_ID, "0");
 
             Intent intent = new Intent(ForgotPasswordActivity.this, OTPVerificationActivity.class);
             intent.putExtra("email", email);
+            intent.putExtra("guru_id", guruId);
             startActivity(intent);
-            // jangan finish, biar user bisa kembali kalau ingin
         });
     }
 
-    private String generateOtp4() {
-        int random = (int) (Math.random() * 9000) + 1000; // 1000..9999
-        return String.valueOf(random);
+    private void sendOtpApi(String email) {
+        apiService.sendOtpRequest(email).enqueue(new Callback<OtpResponse>() {
+            @Override
+            public void onResponse(Call<OtpResponse> call, Response<OtpResponse> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+
+                    OtpResponse otpResponse = response.body();
+
+                    // SIMPAN ID GURU YANG DIKEMBALIKAN SERVER
+                    SharedPreferences prefs = getSharedPreferences(PREFS_OTP, MODE_PRIVATE);
+                    prefs.edit()
+                            .putString(KEY_PENDING_EMAIL, email)
+                            .putString(KEY_PENDING_GURU_ID, otpResponse.getGuruId()) // <-- FIX: Ambil ID dari OtpResponse
+                            .apply();
+
+                    Toast.makeText(ForgotPasswordActivity.this, otpResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    popupEmail.setVisibility(View.VISIBLE);
+                } else {
+                    String msg = response.body() != null ? response.body().getMessage() : "Email tidak terdaftar/Server error.";
+                    Toast.makeText(ForgotPasswordActivity.this, "Gagal: " + msg, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OtpResponse> call, Throwable t) {
+                Toast.makeText(ForgotPasswordActivity.this, "Koneksi Gagal ke Server OTP.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

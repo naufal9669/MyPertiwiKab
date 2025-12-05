@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -12,7 +13,6 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Judul -->
         <TextView
             android:id="@+id/tvDashboardTitle"
             android:layout_width="wrap_content"
@@ -24,7 +24,6 @@
             android:layout_marginBottom="24dp"
             android:layout_gravity="center" />
 
-        <!-- Kartu Profil -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,12 +34,15 @@
             android:layout_marginBottom="32dp"
             android:elevation="4dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfilePhotoHome"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:src="@drawable/teacher"
                 android:layout_marginEnd="16dp"
-                android:contentDescription="Icon Guru" />
+                android:contentDescription="Icon Guru"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFFFFF" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -48,6 +50,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvNamaGuruHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ibu. Amelia S.pd"
@@ -56,6 +59,7 @@
                     android:textColor="#0A1F44" />
 
                 <TextView
+                    android:id="@+id/tvJabatanGuruHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Guru Kelas B1"
@@ -64,7 +68,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Ringkasan Absensi -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +85,6 @@
             android:gravity="center"
             android:layout_marginBottom="32dp">
 
-            <!-- Absensi Datang -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -114,7 +116,6 @@
                 android:layout_width="16dp"
                 android:layout_height="wrap_content" />
 
-            <!-- Absensi Pulang -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -142,8 +143,6 @@
                     android:textColor="#0A1F44" />
             </LinearLayout>
         </LinearLayout>
-
-        <!-- Tombol -->
 
     </LinearLayout>
 </ScrollView>

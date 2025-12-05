@@ -16,38 +16,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:orientation="vertical">
 
             <!-- Logo -->
+
+            <!-- Judul -->
             <ImageView
                 android:id="@+id/logoRegister"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="40dp"
-                android:src="@drawable/download"
-                android:contentDescription="Logo" />
+                android:contentDescription="Logo"
+                android:src="@drawable/download" />
 
-            <!-- Judul -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Buat Akun Anda"
-                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:textSize="24sp"
-                android:textColor="@android:color/white" />
+                android:textStyle="bold" />
 
             <!-- Card Putih -->
             <LinearLayout
                 android:id="@+id/cardRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/card_white"
-                android:padding="20dp"
                 android:layout_marginTop="30dp"
-                android:elevation="8dp">
+                android:background="@drawable/card_white"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <EditText
                     android:id="@+id/editTextFullname"
@@ -88,10 +88,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
-                    android:text="Register"
-                    android:textColor="@android:color/white"
-                    android:textAllCaps="false"
                     android:backgroundTint="#003A75"
+                    android:text="Register"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
                     app:cornerRadius="25dp" />
 
             </LinearLayout>

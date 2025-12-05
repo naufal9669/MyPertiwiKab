@@ -16,6 +16,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     Button btnKirim, btnOkDone, btnBack2;
     View popupSuccess;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
         btnOkDone = findViewById(R.id.btnOkDone);
         btnBack2 = findViewById(R.id.btnBack2);
 
-        // optional: bisa gunakan email dari intent untuk menampilkan info atau validasi lebih lanjut
+        // Debugging / Info
         String emailFromIntent = getIntent().getStringExtra("email");
-        if (emailFromIntent != null && !emailFromIntent.isEmpty()) {
-            Toast.makeText(this, "Reset password untuk: " + emailFromIntent, Toast.LENGTH_SHORT).show();
-        }
 
         btnBack2.setOnClickListener(v -> onBackPressed());
 
@@ -51,8 +49,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 return;
             }
 
-            // Simpan password baru ke SharedPreferences (jika menggunakan shared prefs)
-            // userPrefs adalah file yang dipakai di app
+            // Simpan password baru ke SharedPreferences (simulasi berhasil ganti di server)
             getSharedPreferences("userPrefs", MODE_PRIVATE)
                     .edit()
                     .putString("password", pass1)
@@ -62,12 +59,16 @@ public class ResetPasswordActivity extends AppCompatActivity {
             popupSuccess.setVisibility(View.VISIBLE);
         });
 
-        btnOkDone.setOnClickListener(this::onClick);
+        // Tombol OK di Popup Success
+        btnOkDone.setOnClickListener(this::onClickDone);
     }
 
-    private void onClick(View v) {
+    // Fungsi pindah ke Login setelah sukses
+    private void onClickDone(View v) {
         popupSuccess.setVisibility(View.GONE);
         Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
+        // Flag ini penting biar user tidak bisa kembali ke halaman reset password
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
     }
